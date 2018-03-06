@@ -1,3 +1,4 @@
+<%@ page import="java.io.PrintWriter" %>
 <html>
 <head>
 <title> question1 </title>
@@ -6,7 +7,8 @@
     <body>
 
 <p> Hello!  The time is now
-<%= java.util.Calendar.getInstance().getTime() %>
+<% PrintWriter out1= response.getWriter();
+    out1.println(java.util.Calendar.getInstance().getTime()) ;%>
 </p>
     </body>
 

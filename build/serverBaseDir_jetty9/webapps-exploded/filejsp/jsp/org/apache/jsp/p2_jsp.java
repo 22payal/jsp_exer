@@ -3,8 +3,9 @@ package org.apache.jsp;
 import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.jsp.*;
+import java.io.PrintWriter;
 
-public final class welcome_jsp extends org.apache.jasper.runtime.HttpJspBase
+public final class p2_jsp extends org.apache.jasper.runtime.HttpJspBase
     implements org.apache.jasper.runtime.JspSourceDependent {
 
   private static final JspFactory _jspxFactory = JspFactory.getDefaultFactory();
@@ -41,22 +42,15 @@ public final class welcome_jsp extends org.apache.jasper.runtime.HttpJspBase
       _jspx_out = out;
       _jspx_resourceInjector = (org.glassfish.jsp.api.ResourceInjector) application.getAttribute("com.sun.appserv.jsp.resource.injector");
 
+      out.write("\n");
       out.write("<html>\n");
-      out.write("<head>\n");
-      out.write("    <title> message screen</title>\n");
-      out.write("</head>\n");
-      out.write("\n");
       out.write("<body>\n");
+
+    PrintWriter out = response.getWriter();
+    out.print("welcome to jsp"); 
       out.write("\n");
-      out.print("welcome user ");
-      out.write('\n');
-      out.print(session.getAttribute("userid"));
-      out.write("\n");
-      out.write("\n");
-      out.write("\n");
-      out.write("<a href=\"logout.jsp\"><button>logout</button></a>\n");
       out.write("</body>\n");
-      out.write("</html>");
+      out.write("</html>\n");
     } catch (Throwable t) {
       if (!(t instanceof SkipPageException)){
         out = _jspx_out;

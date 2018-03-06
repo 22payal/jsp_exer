@@ -55,31 +55,34 @@ public final class ques3_jsp extends org.apache.jasper.runtime.HttpJspBase
         String ln = request.getParameter("lname");
         int mb = Integer.parseInt(request.getParameter("telno"));
         String em= request.getParameter("email");
+        String uid = request.getParameter("uid");
         String pass= request.getParameter("pass");
 
 
         Class.forName("com.mysql.jdbc.Driver");
 
         Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/jsp", "root", "payal");
-        PreparedStatement pst = con.prepareStatement("insert into signup values(?,?,?,?,?)");
+        PreparedStatement pst = con.prepareStatement("insert into signup values(?,?,?,?,?,?)");
         pst.setString(1,fn);
         pst.setString(2,ln);
         pst.setInt(3,mb);
         pst.setString(4,em);
-        pst.setString(5,pass);
+        pst.setString(5,uid);
+        pst.setString(6,pass);
 
         int i = pst.executeUpdate();
 
-        if(i!=0){
-
-         //  out.println("Record has been inserted successfully");
+        if(i!=0)
+        {
+            session.setAttribute("userid", uid);
+            response.sendRedirect("success.jsp");
         }
         else{
-         //   out.print("failed to insert the data");
+            response.sendRedirect("nosuccess.jsp");
         }
     }
     catch (Exception e){
-       // out.println(e);
+       //out.println(e);
     }
 
       out.write("\n");

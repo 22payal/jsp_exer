@@ -7,7 +7,7 @@
 <body>
 
 <%
-    String fn =request.getParameter("fname");
+    String uid =request.getParameter("uid");
     String pass= request.getParameter("pass");
 
     try {
@@ -15,14 +15,15 @@
         // loads driver
         Connection c = DriverManager.getConnection("jdbc:mysql://localhost:3306/jsp", "root", "payal"); // gets a new connection
 
-        PreparedStatement ps = c.prepareStatement("select Firstname from signup where Firstname =? and password = ?");
-        ps.setString(1, fn);
+        PreparedStatement ps = c.prepareStatement("select uid from signup where uid =? and password = ?");
+        ps.setString(1, uid);
         ps.setString(2, pass);
 
         ResultSet rs = ps.executeQuery();
 
         while (rs.next()) {
 
+            session.setAttribute("userid", uid);
             response.sendRedirect("welcome.jsp");
 
             return;

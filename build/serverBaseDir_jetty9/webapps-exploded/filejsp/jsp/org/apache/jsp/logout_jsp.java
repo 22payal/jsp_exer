@@ -4,7 +4,7 @@ import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.jsp.*;
 
-public final class welcome_jsp extends org.apache.jasper.runtime.HttpJspBase
+public final class logout_jsp extends org.apache.jasper.runtime.HttpJspBase
     implements org.apache.jasper.runtime.JspSourceDependent {
 
   private static final JspFactory _jspxFactory = JspFactory.getDefaultFactory();
@@ -42,20 +42,16 @@ public final class welcome_jsp extends org.apache.jasper.runtime.HttpJspBase
       _jspx_resourceInjector = (org.glassfish.jsp.api.ResourceInjector) application.getAttribute("com.sun.appserv.jsp.resource.injector");
 
       out.write("<html>\n");
-      out.write("<head>\n");
-      out.write("    <title> message screen</title>\n");
-      out.write("</head>\n");
-      out.write("\n");
       out.write("<body>\n");
       out.write("\n");
-      out.print("welcome user ");
-      out.write('\n');
-      out.print(session.getAttribute("userid"));
+
+    session.setAttribute("userid", null);
+    session.invalidate();
+    response.sendRedirect("MainPage.html");
+
       out.write("\n");
-      out.write("\n");
-      out.write("\n");
-      out.write("<a href=\"logout.jsp\"><button>logout</button></a>\n");
       out.write("</body>\n");
+      out.write("\n");
       out.write("</html>");
     } catch (Throwable t) {
       if (!(t instanceof SkipPageException)){

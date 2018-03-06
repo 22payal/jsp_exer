@@ -4,7 +4,7 @@ import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.jsp.*;
 
-public final class welcome_jsp extends org.apache.jasper.runtime.HttpJspBase
+public final class invalid_jsp extends org.apache.jasper.runtime.HttpJspBase
     implements org.apache.jasper.runtime.JspSourceDependent {
 
   private static final JspFactory _jspxFactory = JspFactory.getDefaultFactory();
@@ -47,14 +47,10 @@ public final class welcome_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("</head>\n");
       out.write("\n");
       out.write("<body>\n");
+      out.print("login not successful");
       out.write("\n");
-      out.print("welcome user ");
-      out.write('\n');
-      out.print(session.getAttribute("userid"));
-      out.write("\n");
-      out.write("\n");
-      out.write("\n");
-      out.write("<a href=\"logout.jsp\"><button>logout</button></a>\n");
+      out.write("<br><br>\n");
+      out.write("<a href=\"MainPage.html\"><button>Go to Main</button></a>\n");
       out.write("</body>\n");
       out.write("</html>");
     } catch (Throwable t) {

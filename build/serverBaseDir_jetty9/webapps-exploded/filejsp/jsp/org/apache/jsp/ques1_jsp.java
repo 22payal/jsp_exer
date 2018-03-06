@@ -3,6 +3,7 @@ package org.apache.jsp;
 import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.jsp.*;
+import java.io.PrintWriter;
 
 public final class ques1_jsp extends org.apache.jasper.runtime.HttpJspBase
     implements org.apache.jasper.runtime.JspSourceDependent {
@@ -41,6 +42,7 @@ public final class ques1_jsp extends org.apache.jasper.runtime.HttpJspBase
       _jspx_out = out;
       _jspx_resourceInjector = (org.glassfish.jsp.api.ResourceInjector) application.getAttribute("com.sun.appserv.jsp.resource.injector");
 
+      out.write("\n");
       out.write("<html>\n");
       out.write("<head>\n");
       out.write("<title> question1 </title>\n");
@@ -49,7 +51,8 @@ public final class ques1_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("    <body>\n");
       out.write("\n");
       out.write("<p> Hello!  The time is now\n");
-      out.print( java.util.Calendar.getInstance().getTime() );
+ PrintWriter out1= response.getWriter();
+    out1.println(java.util.Calendar.getInstance().getTime()) ;
       out.write("\n");
       out.write("</p>\n");
       out.write("    </body>\n");
